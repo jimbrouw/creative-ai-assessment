@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creative Agency AI Readiness Score</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="container">
+        <!-- Header Section -->
+        <header>
+            <h1>The Creative Agency AI Readiness Score</h1>
+            <p class="subtitle">Find out how prepared your agency is for the AI revolution in just 2 minutes.</p>
+        </header>
+
+        <!-- Quiz Section -->
+        <main>
+            <form id="quiz-form">
+                <!-- Question 1 -->
+                <div class="question-block">
+                    <p class="question-text">1. How familiar is your team with generative AI tools (e.g., Midjourney, ChatGPT, Gemini)?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q1" value="1" required> <span>Not familiar at all</span></label>
+                        <label><input type="radio" name="q1" value="2"> <span>A few have experimented</span></label>
+                        <label><input type="radio" name="q1" value="3"> <span>Used occasionally in non-critical tasks</span></label>
+                        <label><input type="radio" name="q1" value="4"> <span>Actively used in daily workflows</span></label>
+                    </div>
+                </div>
+
+                <!-- Question 2 -->
+                <div class="question-block">
+                    <p class="question-text">2. Do you have a formal policy or guidelines for using AI in client projects?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q2" value="1" required> <span>No, it's a free-for-all</span></label>
+                        <label><input type="radio" name="q2" value="2"> <span>We've had informal discussions</span></label>
+                        <label><input type="radio" name="q2" value="3"> <span>We have draft guidelines</span></label>
+                        <label><input type="radio" name="q2" value="4"> <span>We have a clear, enforced policy</span></label>
+                    </div>
+                </div>
+
+                <!-- Question 3 -->
+                <div class="question-block">
+                    <p class="question-text">3. How are you currently using AI to automate routine tasks (e.g., social media scheduling, report generation)?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q3" value="1" required> <span>We don't automate with AI</span></label>
+                        <label><input type="radio" name="q3" value="2"> <span>We're exploring options</span></label>
+                        <label><input type="radio" name="q3" value="3"> <span>We use it for 1-2 specific tasks</span></label>
+                        <label><input type="radio" name="q3" value="4"> <span>AI automation is integral to our operations</span></label>
+                    </div>
+                </div>
+                
+                <!-- Question 4 -->
+                <div class="question-block">
+                    <p class="question-text">4. Have you invested in AI-specific training for your creative and strategic teams?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q4" value="1" required> <span>No training budget or plan</span></label>
+                        <label><input type="radio" name="q4" value="2"> <span>Team members train themselves</span></label>
+                        <label><input type="radio" name="q4" value="3"> <span>We've hosted a few workshops</span></label>
+                        <label><input type="radio" name="q4" value="4"> <span>We have an ongoing AI training program</span></label>
+                    </div>
+                </div>
+
+                <!-- Question 5 -->
+                <div class="question-block">
+                    <p class="question-text">5. Is your agency's data (assets, client info) structured and accessible for potential AI analysis?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q5" value="1" required> <span>Our data is siloed and messy</span></label>
+                        <label><input type="radio" name="q5" value="2"> <span>Some data is organized</span></label>
+                        <label><input type="radio" name="q5" value="3"> <span>We are actively working on data structuring</span></label>
+                        <label><input type="radio" name="q5" value="4"> <span>Our data is clean, structured, and ready</span></label>
+                    </div>
+                </div>
+
+                <!-- Question 6 -->
+                <div class="question-block">
+                    <p class="question-text">6. How do you approach the ethical considerations and copyright implications of AI-generated content?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q6" value="1" required> <span>We haven't considered this yet</span></label>
+                        <label><input type="radio" name="q6" value="2"> <span>It's a topic of internal debate</span></label>
+                        <label><input type="radio" name="q6" value="3"> <span>We have a case-by-case review process</span></label>
+                        <label><input type="radio" name="q6" value="4"> <span>We have clear ethical and legal frameworks</span></label>
+                    </div>
+                </div>
+                
+                <!-- Question 7 -->
+                <div class="question-block">
+                    <p class="question-text">7. Are you using AI tools for deep client insights, like market trend analysis or audience segmentation?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q7" value="1" required> <span>No, all analysis is manual</span></label>
+                        <label><input type="radio" name="q7" value="2"> <span>We use basic analytics tools</span></label>
+                        <label><input type="radio" name="q7" value="3"> <span>We've experimented with AI for insights</span></label>
+                        <label><input type="radio" name="q7" value="4"> <span>AI-driven insights are key to our strategy</span></label>
+                    </div>
+                </div>
+
+                <!-- Question 8 -->
+                <div class="question-block">
+                    <p class="question-text">8. What is your budget allocation for AI tools and technology for the next 12 months?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q8" value="1" required> <span>Zero / Not allocated</span></label>
+                        <label><input type="radio" name="q8" value="2"> <span>A small, experimental budget</span></label>
+                        <label><input type="radio" name="q8" value="3"> <span>A dedicated budget for specific tools</span></label>
+                        <label><input type="radio" name="q8" value="4"> <span>A significant, strategic investment</span></label>
+                    </div>
+                </div>
+
+                <!-- Question 9 -->
+                <div class="question-block">
+                    <p class="question-text">9. How does your leadership view the integration of AI into the agency's core services?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q9" value="1" required> <span>As a threat or distraction</span></label>
+                        <label><input type="radio" name="q9" value="2"> <span>With caution and skepticism</span></label>
+                        <label><input type="radio" name="q9" value="3"> <span>With optimistic curiosity</span></label>
+                        <label><input type="radio" name="q9" value="4"> <span>As essential for future growth</span></label>
+                    </div>
+                </div>
+
+                <!-- Question 10 -->
+                <div class="question-block">
+                    <p class="question-text">10. Are you actively experimenting with new AI platforms to discover competitive advantages?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q10" value="1" required> <span>No, we wait for trends to mature</span></label>
+                        <label><input type="radio" name="q10" value="2"> <span>We read about new tools</span></label>
+                        <label><input type="radio" name="q10" value="3"> <span>A few team members test new platforms</span></label>
+                        <label><input type="radio" name="q10" value="4"> <span>We have a formal R&D process for AI</span></label>
+                    </div>
+                </div>
+                
+                <!-- Error message placeholder -->
+                <p id="error-message" class="error-text hidden"></p>
+
+                <button type="submit" class="submit-btn">Calculate My Score</button>
+            </form>
+        </main>
+
+        <!-- Results Section (Initially Hidden) -->
+        <section id="results" class="hidden">
+            <h2>Your Results</h2>
+            <div id="level-indicator">
+                <span id="level-name"></span>
+            </div>
+            <p class="score-text">Your Score: <span id="score-display">0</span> / 40</p>
+            <p id="level-text"></p>
+            <button class="cta-btn">Book a Free Strategy Call</button>
+        </section>
+
+    </div>
+
+    <!-- Link to the external JavaScript file -->
+    <script src="script.js"></script>
+
+</body>
+</html>

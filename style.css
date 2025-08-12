@@ -1,0 +1,215 @@
+/* --- General & Body Styles --- */
+:root {
+    --primary-color: #0052cc;
+    --light-gray: #f4f7f9;
+    --medium-gray: #e1e8ed;
+    --dark-gray: #333;
+    --text-color: #2c3e50;
+    --white: #ffffff;
+    --red: #e74c3c;
+    --amber: #f39c12;
+    --green: #2ecc71;
+    --border-radius: 8px;
+    --box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--light-gray);
+    color: var(--text-color);
+    margin: 0;
+    padding: 2rem 1rem;
+    line-height: 1.6;
+}
+
+/* --- Main Container --- */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: var(--white);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    padding: 2rem;
+    transition: all 0.3s ease-in-out;
+}
+
+/* --- Header --- */
+header {
+    text-align: center;
+    border-bottom: 1px solid var(--medium-gray);
+    padding-bottom: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+h1 {
+    color: var(--dark-gray);
+    font-weight: 700;
+    margin: 0 0 0.5rem 0;
+}
+
+.subtitle {
+    font-size: 1.1rem;
+    color: #7f8c8d;
+    margin: 0;
+}
+
+/* --- Quiz Form & Questions --- */
+.question-block {
+    margin-bottom: 2.5rem;
+}
+
+.question-text {
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-bottom: 1.2rem;
+}
+
+.options {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+.options label {
+    display: block;
+    background-color: var(--light-gray);
+    padding: 1rem;
+    border-radius: var(--border-radius);
+    border: 2px solid var(--medium-gray);
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.options label:hover {
+    border-color: var(--primary-color);
+    background-color: #e9f2ff;
+}
+
+/* Hide the default radio button */
+.options input[type="radio"] {
+    display: none;
+}
+
+/* Style the selected option's label */
+.options input[type="radio"]:checked + span {
+    font-weight: 500;
+}
+
+.options input[type="radio"]:checked + span::before {
+    content: '✔ ';
+    color: var(--primary-color);
+}
+
+.options label.selected {
+    border-color: var(--primary-color);
+    background-color: #e0ecff;
+    box-shadow: 0 2px 5px rgba(0, 82, 204, 0.2);
+}
+
+
+/* --- Buttons --- */
+.submit-btn, .cta-btn {
+    display: block;
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--white);
+    background-color: var(--primary-color);
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+    margin-top: 1rem; /* Adjusted margin */
+}
+
+.submit-btn:hover, .cta-btn:hover {
+    background-color: #0041a3;
+    transform: translateY(-2px);
+}
+
+/* --- Results Section --- */
+#results {
+    text-align: center;
+    padding: 2rem 1rem;
+}
+
+#level-indicator {
+    width: 120px;
+    height: 120px;
+    margin: 1rem auto;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    font-size: 1.8rem;
+    font-weight: 700;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.15);
+}
+
+.level-red { background-color: var(--red); }
+.level-amber { background-color: var(--amber); }
+.level-green { background-color: var(--green); }
+
+.score-text {
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin: 1rem 0;
+}
+
+#level-text {
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto 2rem auto;
+    line-height: 1.7;
+}
+
+.cta-btn {
+    width: auto;
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+/* --- Utility & Error Classes --- */
+.hidden {
+    display: none;
+}
+
+.error-text {
+    color: var(--red);
+    text-align: center;
+    margin-top: 1rem;
+    margin-bottom: 0;
+    font-weight: 500;
+    height: 1.5em; /* Reserve space to prevent layout shift */
+}
+.error-text.hidden {
+    display: block; /* Keep in layout but invisible */
+    visibility: hidden;
+}
+
+
+/* --- Responsive Design --- */
+@media (max-width: 600px) {
+    body {
+        padding: 1rem 0.5rem;
+    }
+    
+    .container {
+        padding: 1.5rem;
+    }
+
+    .options {
+        grid-template-columns: 1fr; /* Stack options vertically on small screens */
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    .question-text {
+        font-size: 1.1rem;
+    }
+}
