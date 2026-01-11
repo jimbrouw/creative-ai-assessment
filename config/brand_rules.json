@@ -1,54 +1,123 @@
 {
   "voice": {
+    "character": "Warm storyteller, friendly teacher energy",
+    "accent": "Irish (soft, not stage-Irish)",
+    "gender": "flexible (female or male)",
+    "pace": "Medium, clear enunciation, gentle pauses between beats",
     "do": [
-      "Use short sentences (max 20 words)",
+      "Use short sentences (max 15 words)",
       "Use active voice",
-      "Make clear, specific claims",
-      "Include concrete details (names, dates, numbers)",
+      "Include specific names and places",
       "Write for audio - easy to speak aloud",
-      "Get to the point fast"
+      "Sound curious and warm, not dramatic",
+      "Use 'people say' or 'the story goes' framing"
     ],
     "dont": [
+      "Use horror framing or spooky tone",
       "Use hype or exaggeration",
       "Use cliches or tired phrases",
-      "Write rambling intros",
-      "Use filler words (actually, basically, literally)",
-      "Reference the video or channel (no 'in this video', 'I')",
-      "Ask rhetorical questions as filler"
-    ]
+      "Reference the video or channel",
+      "Sound like a documentary narrator",
+      "Use filler words (actually, basically, literally)"
+    ],
+    "elevenlabs_prompt": "Warm, gentle Irish accent. Pace: medium, unhurried. Tone: curious storyteller, like a friendly teacher sharing something interesting. Clear enunciation. Slight warmth and wonder in voice. Not dramatic or spooky. Natural pauses between sentences."
   },
 
   "format_rules": {
-    "hook_seconds": 5,
-    "sections": ["HOOK", "CONTEXT", "ESCALATION", "PAYOFF", "WRAP"],
+    "target_duration_seconds": 50,
+    "sections": ["HOOK", "CONTEXT", "STORY_BEATS", "MEANING", "PROMPT"],
     "section_guidelines": {
-      "HOOK": "Immediate stakes or curiosity. No intro.",
-      "CONTEXT": "What's happening + why it matters. Establish stakes.",
-      "ESCALATION": "3-5 beats of rising tension/insight. Each builds on previous.",
-      "PAYOFF": "The reveal/resolution. Answer the hook's question.",
-      "WRAP": "Bigger picture meaning. Optional tease for next video. No begging for engagement."
+      "HOOK": "0-2s. Question format. Spark curiosity, not fear.",
+      "CONTEXT": "2-8s. Ground the tradition/creature. One sentence of setup.",
+      "STORY_BEATS": "8-35s. Three beats: belief/tradition, example/story, what people do.",
+      "MEANING": "35-50s. Educational payoff. What it really means (respect, nature, community).",
+      "PROMPT": "50-60s. Gentle question to trigger comments. Not begging for engagement."
+    },
+    "beat_structure": {
+      "beat_1": "The belief or tradition itself",
+      "beat_2": "A famous example or 'what happens' (softened)",
+      "beat_3": "What people do instead / modern continuation"
     }
   },
 
-  "thumbnail_rules": {
-    "text_style": "Bold, impactful, 1-5 words only",
-    "emotion": "Evoke curiosity, shock, or intrigue",
-    "composition": "Single focal point, high contrast, no clutter",
-    "avoid": ["Clickbait that doesn't deliver", "Misleading imagery", "Too much text", "Low contrast"]
+  "visual_style": {
+    "aesthetic": "Late 1970s British children's TV animation",
+    "references": ["Bagpuss", "Mr Benn", "Willow the Wisp", "Meg and Mog", "Ivor the Engine"],
+    "technique": "Paper-cut characters on flat painted backgrounds",
+    "characteristics": [
+      "Visible paper-edge texture",
+      "Simple shapes and silhouettes",
+      "Gentle, muted colour palette",
+      "Handmade, tactile feel",
+      "Warm lighting, no harsh shadows"
+    ],
+    "border": {
+      "default": "Simple storybook border (decorative but not Celtic)",
+      "irish_episodes": "Celtic knot border used sparingly",
+      "notes": "Use Celtic knotwork only for explicitly Irish cultural episodes to avoid appropriation concerns"
+    },
+    "figures": {
+      "faces": "No realistic faces - use silhouettes, back-facing, tiny figures, or masks",
+      "style": "Simple, stylized, reminiscent of illustration not photography",
+      "avoid": "Uncanny valley, photorealistic humans, identifiable real people"
+    }
+  },
+
+  "image_prompt_template": {
+    "style_header": "paper-cut illustration style, flat painted watercolour background, visible paper texture edges, simple shapes, 1970s British children's TV aesthetic like Bagpuss or Mr Benn, warm muted colours, soft lighting, handmade tactile feel, no text, no watermark, vertical 9:16 composition",
+    "figure_rules": "silhouette figures only, no visible faces, back-facing or distant tiny figures acceptable",
+    "avoid": "photorealistic, modern objects, harsh shadows, horror aesthetic, creepy, dark, scary"
+  },
+
+  "shot_plan": {
+    "images_count": 6,
+    "shots": [
+      {"number": 1, "name": "Title card", "duration": "2s", "description": "Map of Ireland style or decorative title"},
+      {"number": 2, "name": "Place/object hero", "duration": "4s", "description": "The main location or object (tree, well, cliff)"},
+      {"number": 3, "name": "Story beat 1", "duration": "6s", "description": "The belief or tradition visualized"},
+      {"number": 4, "name": "Story beat 2", "duration": "6s", "description": "The example or 'what happens'"},
+      {"number": 5, "name": "Story beat 3", "duration": "6s", "description": "What people do / modern practice"},
+      {"number": 6, "name": "Meaning card", "duration": "8s", "description": "Simple iconography representing the meaning"}
+    ]
+  },
+
+  "captions": {
+    "style": "Large, bold, 2-4 words per beat",
+    "purpose": "Retention and accessibility",
+    "font": "Clean, rounded, friendly (not horror fonts)",
+    "placement": "Center-bottom third of frame"
   },
 
   "title_rules": {
-    "length_chars_max": 60,
-    "style": "Clear curiosity gap OR bold claim",
-    "avoid": ["ALL CAPS entire title", "Excessive punctuation!!!", "Vague promises"]
+    "length_chars_max": 50,
+    "style": "Question format preferred, or simple statement",
+    "examples": [
+      "Why do Irish people never cut this tree?",
+      "The real meaning of Samhain",
+      "What happens if you take a selkie's coat?"
+    ],
+    "avoid": ["ALL CAPS", "Excessive punctuation", "Clickbait that doesn't deliver", "Horror framing"]
   },
 
   "channel_identity": {
-    "personality": "Knowledgeable narrator - not a personality, just a voice",
-    "credibility": "Well-researched, cites sources when relevant",
-    "pacing": "Efficient - respects viewer's time",
-    "production_style": "Clean, professional, not flashy"
+    "name_direction": ["gentle", "curious", "storybook"],
+    "personality": "Warm storyteller sharing gentle folklore",
+    "credibility": "Well-researched but not academic",
+    "pacing": "Unhurried but efficient",
+    "production_style": "Handmade, warm, distinctive"
   },
 
-  "notes": "These rules shape all content. Update to match your brand voice."
+  "cultural_sensitivity": {
+    "approach": "Respectful outsider sharing appreciation, not claiming authority",
+    "source_requirements": "At least 2 sources per story, prefer academic or Irish cultural institutions",
+    "avoid": [
+      "Stage-Irish stereotypes",
+      "Horror framing of living traditions",
+      "Claiming to be Irish or insider",
+      "Disrespecting sacred traditions"
+    ],
+    "notes": "Frame as 'the story goes' or 'in Irish tradition' rather than definitive claims"
+  },
+
+  "notes": "Irish folklore shorts channel. 70s British children's TV paper-cut aesthetic. Warm, educational, kid-safe. Not horror, not spooky."
 }

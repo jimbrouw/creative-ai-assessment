@@ -1,10 +1,57 @@
 {
-  "candidate_niches": [
-    "History mysteries",
-    "Personal finance explainers",
-    "Engineering disasters",
-    "Courtroom stories"
-  ],
-  "selected_niche": null,
-  "notes": "Set selected_niche to lock in a specific niche. If null, the Niche Selection Agent will evaluate candidates."
+  "selected_niche": "Irish Folklore",
+
+  "niche_details": {
+    "name": "Irish Folklore",
+    "tagline": "Irish Folklore in 60 Seconds: gentle stories, meanings, and places",
+    "primary_pillar": "festivals_and_traditions",
+    "secondary_pillar": "creatures_gentle",
+    "format": "shorts"
+  },
+
+  "content_pillars": {
+    "festivals_and_traditions": {
+      "name": "Festivals & Traditions",
+      "description": "Seasonal festivals, customs, and living traditions explained",
+      "examples": ["Samhain as end of harvest", "Bealtaine May traditions", "Imbolc and Brigid", "Wren Day"],
+      "volume": "high",
+      "risk": "low",
+      "priority": 1
+    },
+    "creatures_gentle": {
+      "name": "Creatures (Gentle Framing)",
+      "description": "Folklore creatures presented as curious, mischievous, or protective - not scary",
+      "examples": ["Púca as prankster", "Selkie lost coat story", "Merrow Irish merfolk", "Banshee as family warning"],
+      "volume": "high",
+      "risk": "medium",
+      "priority": 2,
+      "notes": "Watch tone carefully. Curious, not creepy."
+    },
+    "places_and_objects": {
+      "name": "Places & Objects",
+      "description": "Why places have their names, sacred objects, famous sites",
+      "examples": ["Fairy trees", "Holy wells", "Giant's Causeway", "Newgrange winter sun"],
+      "volume": "very_high",
+      "risk": "very_low",
+      "priority": 3,
+      "notes": "Can expand into this pillar for infinite content later"
+    }
+  },
+
+  "content_mix": {
+    "festivals_and_traditions": "50%",
+    "creatures_gentle": "30%",
+    "places_and_objects": "20%"
+  },
+
+  "why_this_niche": {
+    "ai_image_compatibility": "Excellent - mythology allows stylized, illustrated content. No real footage needed.",
+    "faceless_suitability": "Perfect - no personality required, just warm narration",
+    "evergreen": "High - folklore doesn't date, seasonal content recycles yearly",
+    "competition": "Low-medium for gentle/educational angle, most competitors do horror",
+    "differentiation": "Visual style (70s British children's TV) + warm tone + educational framing",
+    "expansion_path": "Can expand to Scottish, Welsh, Breton folklore with same format"
+  },
+
+  "notes": "Locked in. Primary focus on festivals/traditions, secondary on gentle creature content. Places/objects available for expansion."
 }

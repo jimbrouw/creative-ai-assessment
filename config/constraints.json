@@ -1,19 +1,25 @@
 {
-  "output_format": "longform",
+  "output_format": "shorts",
   "output_format_options": ["longform", "shorts", "longform_and_shorts"],
 
-  "video_length_minutes": [8, 14],
-  "script_word_count": [1100, 1800],
+  "video_length_seconds": [45, 60],
+  "script_word_count": [80, 150],
 
-  "thumbnail": {
-    "text_words_max": 5,
-    "color_limit": 3,
-    "aspect_ratio": "16:9",
-    "min_resolution": "1280x720"
+  "cover_image": {
+    "text_words_max": 4,
+    "color_limit": 4,
+    "aspect_ratio": "9:16",
+    "resolution": "1080x1920"
   },
 
-  "tone": "direct, factual, no cringe",
-  "cadence": "3_per_week",
+  "images_per_short": {
+    "min": 5,
+    "max": 8,
+    "target": 6
+  },
+
+  "tone": "warm, gentle, curious, educational",
+  "cadence": "1_per_day",
   "cadence_options": ["1_per_day", "3_per_week", "1_per_week", "batch_weekly"],
 
   "risk_level": "evergreen",
@@ -22,25 +28,49 @@
   "monetisation_target": "ads",
   "monetisation_options": ["ads", "affiliate", "lead_gen", "sell_channel", "funnel"],
 
-  "hook_max_seconds": 5,
-  "hook_max_words": 20,
+  "audience": {
+    "made_for_kids": false,
+    "family_friendly": true,
+    "age_range": "all_ages",
+    "notes": "Kid-safe content but NOT marked as 'Made for Kids' to preserve monetization features"
+  },
+
+  "hook_max_seconds": 2,
+  "hook_max_words": 15,
 
   "script_structure": {
-    "sections": ["HOOK", "CONTEXT", "ESCALATION", "PAYOFF", "WRAP"],
-    "escalation_beats_min": 3,
-    "escalation_beats_max": 5
+    "sections": ["HOOK", "CONTEXT", "STORY_BEATS", "MEANING", "PROMPT"],
+    "story_beats_count": 3,
+    "section_timings": {
+      "HOOK": "0-2s",
+      "CONTEXT": "2-8s",
+      "STORY_BEATS": "8-35s",
+      "MEANING": "35-50s",
+      "PROMPT": "50-60s"
+    }
   },
 
   "forbidden_phrases": [
     "Hey guys",
-    "Welcome back to my channel",
+    "Welcome back",
     "Before we begin",
     "Without further ado",
     "Let's dive in",
     "Don't forget to like and subscribe",
     "Today we're going to talk about",
-    "In this video"
+    "In this video",
+    "Smash that like button",
+    "Hit the bell"
   ],
 
-  "notes": "These constraints are enforced by all agents and validated by QA. Modify values but keep structure intact."
+  "content_rules": {
+    "no_gore": true,
+    "no_explicit_violence": true,
+    "no_horror_framing": true,
+    "respect_living_religions": true,
+    "implied_consequences_only": true,
+    "notes": "Consequences use soft language: vanish, lost, taken, never seen again. No torture, blood, or graphic detail."
+  },
+
+  "notes": "Shorts-first Irish folklore channel. Kid-safe but general audience. Festivals & traditions focus with gentle creature content."
 }

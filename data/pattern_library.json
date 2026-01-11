@@ -1,42 +1,384 @@
 {
   "meta": {
-    "generated": null,
-    "channels_analysed": 0,
-    "videos_analysed": 0,
-    "niche": null,
-    "status": "empty",
-    "notes": "This file will be populated by the Channel Intelligence Agent after analysing seed channel data."
+    "generated": "2026-01-11",
+    "niche": "Irish Folklore",
+    "format": "shorts",
+    "status": "initialized",
+    "notes": "Pattern library for Irish folklore shorts. Templates derived from kid-safe educational folklore format."
   },
-  "title_templates": [],
-  "hook_templates": [],
-  "topic_clusters": [],
-  "thumbnail_rules": {
-    "text": {
-      "word_count_range": null,
-      "common_words": [],
-      "placement": null,
-      "font_style": null
+
+  "title_templates": [
+    {
+      "template": "Why do Irish people [ACTION] [OBJECT]?",
+      "type": "question",
+      "pillar": "traditions",
+      "examples": [
+        "Why do Irish people never cut this tree?",
+        "Why do Irish people leave ribbons at wells?",
+        "Why do Irish people make Brigid's crosses?"
+      ]
     },
-    "colors": {
-      "dominant_palette": [],
-      "contrast": null,
-      "background": null
+    {
+      "template": "The real meaning of [TRADITION/FESTIVAL]",
+      "type": "statement",
+      "pillar": "festivals",
+      "examples": [
+        "The real meaning of Samhain",
+        "The real meaning of Bealtaine",
+        "The real meaning of Imbolc"
+      ]
     },
-    "composition": {
-      "focal_point": null,
-      "faces": null,
-      "arrows_circles": null
+    {
+      "template": "What happens if you [ACTION] [CREATURE/OBJECT]?",
+      "type": "question",
+      "pillar": "creatures",
+      "examples": [
+        "What happens if you take a selkie's coat?",
+        "What happens if you help a púca?",
+        "What happens if you thank a fairy?"
+      ]
+    },
+    {
+      "template": "The [ADJECTIVE] reason [PLACE] is called that",
+      "type": "statement",
+      "pillar": "places",
+      "examples": [
+        "The surprising reason Giant's Causeway is called that",
+        "The ancient reason this well is sacred",
+        "The strange reason this tree is never cut"
+      ]
+    }
+  ],
+
+  "hook_templates": [
+    {
+      "template": "Why do [GROUP] say you should never [ACTION]?",
+      "type": "question_prohibition",
+      "examples": [
+        "Why do Irish stories say you should never cut a lone hawthorn?",
+        "Why do some families say you should never thank the fairies?"
+      ]
+    },
+    {
+      "template": "In Ireland, [OBJECT/PLACE] is treated as [DESCRIPTION].",
+      "type": "statement_curious",
+      "examples": [
+        "In Ireland, certain lone trees are treated as fairy property.",
+        "In Irish tradition, holy wells are treated as sacred healing places."
+      ]
+    },
+    {
+      "template": "What if [SCENARIO]?",
+      "type": "question_scenario",
+      "examples": [
+        "What if the winter sun only entered one tomb, once a year?",
+        "What if there was a creature who could become any animal it wanted?"
+      ]
+    }
+  ],
+
+  "script_template": {
+    "structure": ["HOOK", "CONTEXT", "BEAT_1", "BEAT_2", "BEAT_3", "MEANING", "PROMPT"],
+    "timing": {
+      "HOOK": "0-2s",
+      "CONTEXT": "2-8s",
+      "BEAT_1": "8-17s",
+      "BEAT_2": "17-26s",
+      "BEAT_3": "26-35s",
+      "MEANING": "35-50s",
+      "PROMPT": "50-60s"
+    },
+    "word_counts": {
+      "HOOK": "5-15 words",
+      "CONTEXT": "15-25 words",
+      "BEAT_1": "20-30 words",
+      "BEAT_2": "20-30 words",
+      "BEAT_3": "20-30 words",
+      "MEANING": "25-40 words",
+      "PROMPT": "10-15 words"
+    },
+    "total_target": "115-185 words (aim for 130-150)"
+  },
+
+  "shot_templates": {
+    "standard_6_shot": [
+      {"shot": 1, "name": "title_card", "description": "Map of Ireland style or decorative title with episode name"},
+      {"shot": 2, "name": "hero_location", "description": "Wide establishing shot of the place/object (tree, well, cliff)"},
+      {"shot": 3, "name": "beat_1_visual", "description": "The tradition or belief visualized"},
+      {"shot": 4, "name": "beat_2_visual", "description": "The story example or 'what happens'"},
+      {"shot": 5, "name": "beat_3_visual", "description": "Modern practice or what people do"},
+      {"shot": 6, "name": "meaning_card", "description": "Simple iconography representing the deeper meaning"}
+    ]
+  },
+
+  "topic_clusters": {
+    "festivals": {
+      "topics": ["Samhain", "Bealtaine", "Imbolc", "Lughnasadh", "St Brigid's Day", "Wren Day"],
+      "pillar": "festivals_and_traditions",
+      "seasonal": true
+    },
+    "sacred_trees": {
+      "topics": ["Hawthorn fairy trees", "Rowan protection", "Oak sacred groves", "Ash world tree"],
+      "pillar": "places_and_objects",
+      "seasonal": false
+    },
+    "water_folklore": {
+      "topics": ["Holy wells", "Sacred springs", "River spirits", "Lake legends"],
+      "pillar": "places_and_objects",
+      "seasonal": false
+    },
+    "gentle_creatures": {
+      "topics": ["Selkie", "Púca", "Merrow", "Leprechaun", "Banshee (family protector framing)"],
+      "pillar": "creatures_gentle",
+      "seasonal": false
+    },
+    "hero_stories": {
+      "topics": ["Fionn and the Salmon", "Fionn and the Giant", "Children of Lir", "Cú Chulainn bravery"],
+      "pillar": "creatures_gentle",
+      "seasonal": false
     }
   },
-  "timing_insights": {
-    "optimal_duration": {
-      "range_minutes": null,
-      "sweet_spot": null,
-      "evidence": null
+
+  "starter_episodes": [
+    {
+      "id": 1,
+      "title": "Why do Irish people never cut this tree?",
+      "topic": "Fairy trees (hawthorn)",
+      "pillar": "places_and_objects",
+      "hook": "Why do Irish stories say you should never cut a lone hawthorn?",
+      "context": "In Irish folklore, certain lone hawthorns are treated as fairy property.",
+      "beats": {
+        "beat_1": "People believed fairies gathered under these trees. Cutting one could anger them.",
+        "beat_2": "Even today, roads have been re-routed around lone hawthorns in Ireland.",
+        "beat_3": "People tie ribbons to them, leave offerings, and walk around them with respect."
+      },
+      "meaning": "It's really a story about respect: for nature, for old things, and for land that isn't just ours.",
+      "prompt": "Have you ever seen a tree people wouldn't cut? Tell me.",
+      "image_prompts": {
+        "shot_1": "decorative title card, 'Fairy Trees' text, map of Ireland silhouette, paper-cut style, warm muted greens and browns",
+        "shot_2": "lone hawthorn tree on Irish hillside, misty morning, paper-cut illustration style, flat watercolour background, warm muted colours",
+        "shot_3": "tiny silhouette figures dancing under tree branches at dusk, paper-cut style, magical warm glow, simple shapes",
+        "shot_4": "aerial view of road curving around a lone tree, paper-cut map style, simple shapes, muted colours",
+        "shot_5": "colourful ribbons tied to tree branches, paper-cut style, gentle breeze suggested, warm afternoon light",
+        "shot_6": "simple icon of tree with protective circle around it, paper-cut style, warm colours, meaning card"
+      },
+      "sources": ["Irish Folklore Commission archives", "National Roads Authority of Ireland historical records"]
     },
-    "publish_patterns": {
-      "best_days": [],
-      "avoid": []
+    {
+      "id": 2,
+      "title": "The real meaning of Samhain",
+      "topic": "Samhain festival",
+      "pillar": "festivals_and_traditions",
+      "hook": "What if Halloween started as something completely different?",
+      "context": "Samhain was the ancient Irish festival marking the end of harvest.",
+      "beats": {
+        "beat_1": "It fell on the night between October 31st and November 1st. Summer ended. Winter began.",
+        "beat_2": "People believed the boundary between worlds grew thin. Ancestors could visit.",
+        "beat_3": "Families lit bonfires, left food out, and welcomed the spirits of loved ones home."
+      },
+      "meaning": "It wasn't about fear. It was about remembering: the harvest, the year, and the people who came before.",
+      "prompt": "Do you have a tradition for remembering loved ones? Share it.",
+      "image_prompts": {
+        "shot_1": "decorative title card, 'Samhain' text, autumn leaves border, paper-cut style",
+        "shot_2": "Irish village at dusk with harvest fields, paper-cut style, orange and brown autumn colours",
+        "shot_3": "bonfire on hilltop, tiny silhouette figures gathered, paper-cut style, warm orange glow",
+        "shot_4": "doorway with candle and plate of food left out, paper-cut style, warm interior light",
+        "shot_5": "family silhouettes gathered around hearth fire, ancestors as gentle glowing shapes above, paper-cut style",
+        "shot_6": "simple icon of sun setting behind hills, harvest wheat sheaf, meaning card style"
+      },
+      "sources": ["Celtic calendar research", "Irish National Folklore Collection"]
+    },
+    {
+      "id": 3,
+      "title": "What happens if you take a selkie's coat?",
+      "topic": "Selkie folklore",
+      "pillar": "creatures_gentle",
+      "hook": "What if someone could become a seal just by wearing a coat?",
+      "context": "In Irish and Scottish coastal stories, selkies were seal-people.",
+      "beats": {
+        "beat_1": "They lived as seals in the sea, but could shed their skin and walk on land as humans.",
+        "beat_2": "If someone found and hid their sealskin, the selkie couldn't return to the water.",
+        "beat_3": "In the stories, selkies often lived on land for years, but always longed for the sea."
+      },
+      "meaning": "It's a story about belonging. About the pull of home. And about what we lose when we hold too tightly.",
+      "prompt": "Where do you feel most at home? Ocean or land?",
+      "image_prompts": {
+        "shot_1": "decorative title card, 'Selkie' text, ocean wave border, paper-cut style, blues and silvers",
+        "shot_2": "rocky Irish coastline at dusk, seals on rocks, paper-cut style, soft blue-grey palette",
+        "shot_3": "silhouette figure walking from waves onto beach, seal coat in hands, paper-cut style",
+        "shot_4": "cottage by the sea, folded coat hidden in wooden chest, paper-cut style, warm interior",
+        "shot_5": "silhouette figure looking out window at moonlit sea, longing pose, paper-cut style",
+        "shot_6": "simple icon of seal and human figure connected, heart symbol, meaning card style"
+      },
+      "sources": ["Scottish and Irish coastal folklore", "Hebridean oral traditions"]
+    },
+    {
+      "id": 4,
+      "title": "Why do Irish people leave ribbons at wells?",
+      "topic": "Holy wells",
+      "pillar": "places_and_objects",
+      "hook": "Why are there thousands of wells in Ireland covered in ribbons and tokens?",
+      "context": "Holy wells have been sacred in Ireland for over a thousand years.",
+      "beats": {
+        "beat_1": "People visited them for healing, blessing, and to mark important moments in life.",
+        "beat_2": "They would walk around the well a certain number of times, say prayers, then leave something behind.",
+        "beat_3": "Ribbons, coins, and small objects are tied to nearby trees as offerings."
+      },
+      "meaning": "It's not just superstition. It's a way of marking a moment, making a wish visible, and connecting to the past.",
+      "prompt": "Have you ever visited a wishing well? What did you wish for?",
+      "image_prompts": {
+        "shot_1": "decorative title card, 'Holy Wells' text, water droplet border, paper-cut style",
+        "shot_2": "stone well in Irish woodland clearing, paper-cut style, dappled green light",
+        "shot_3": "silhouette figure walking circular path around well, paper-cut style, meditative mood",
+        "shot_4": "hands tying ribbon to branch, close-up paper-cut style, colorful ribbons",
+        "shot_5": "tree branches covered in hundreds of colourful ribbons, paper-cut style, magical feel",
+        "shot_6": "simple icon of water drop with radiating circles, meaning card style"
+      },
+      "sources": ["Irish holy wells survey", "Archaeological studies of sacred springs"]
+    },
+    {
+      "id": 5,
+      "title": "What is a púca and why is it so tricky?",
+      "topic": "Púca folklore",
+      "pillar": "creatures_gentle",
+      "hook": "What if there was a creature that could become any animal it wanted?",
+      "context": "The púca is one of Ireland's most famous shapeshifters.",
+      "beats": {
+        "beat_1": "It could appear as a horse, a goat, a rabbit, or even a dark-haired human.",
+        "beat_2": "Púcas were known for mischief: leading travelers astray, but rarely causing real harm.",
+        "beat_3": "After Samhain, wild blackberries were considered 'púca-spat' and left alone."
+      },
+      "meaning": "The púca reminds us that not everything wild is dangerous. Some mischief is just nature having fun.",
+      "prompt": "If you could shapeshift into one animal, what would it be?",
+      "image_prompts": {
+        "shot_1": "decorative title card, 'The Púca' text, playful border with animal silhouettes",
+        "shot_2": "moonlit Irish crossroads, mysterious dark horse silhouette, paper-cut style",
+        "shot_3": "sequence showing horse transforming to goat to rabbit, paper-cut animation style",
+        "shot_4": "confused traveler silhouette at foggy crossroads, púca as mischievous eyes in darkness",
+        "shot_5": "blackberry bush with frost, tiny púca silhouette nearby, paper-cut style",
+        "shot_6": "simple icon of shapeshifting spiral, playful energy, meaning card style"
+      },
+      "sources": ["Irish Folklore Commission", "Lady Gregory's folklore collections"]
+    },
+    {
+      "id": 6,
+      "title": "The real meaning of Bealtaine",
+      "topic": "Bealtaine festival",
+      "pillar": "festivals_and_traditions",
+      "hook": "What did Irish people do on the first day of summer, three thousand years ago?",
+      "context": "Bealtaine marked the beginning of the bright half of the Celtic year.",
+      "beats": {
+        "beat_1": "It fell on May 1st. Winter was gone. Cattle went out to summer pastures.",
+        "beat_2": "People lit great bonfires on hilltops. They drove cattle between two fires for protection.",
+        "beat_3": "May flowers decorated doorways. Yellow flowers especially, like primrose and buttercup."
+      },
+      "meaning": "Bealtaine was about hope and beginnings. Light returning. The promise that warmth would last.",
+      "prompt": "What's your favourite sign that summer is coming?",
+      "image_prompts": {
+        "shot_1": "decorative title card, 'Bealtaine' text, May flowers border, paper-cut style, bright yellows",
+        "shot_2": "Irish hilltop at dawn, May morning light, paper-cut style, warm golden colours",
+        "shot_3": "two bonfires on hillside, cattle silhouettes passing between, paper-cut style",
+        "shot_4": "cottage doorway decorated with yellow flowers, paper-cut style, cheerful",
+        "shot_5": "children silhouettes dancing around maypole, paper-cut style, joyful movement",
+        "shot_6": "simple icon of sun rising over green hill, flower, meaning card style"
+      },
+      "sources": ["Celtic calendar studies", "Archaeological evidence of fire festivals"]
+    },
+    {
+      "id": 7,
+      "title": "The legend of Fionn and the Salmon of Knowledge",
+      "topic": "Fionn mac Cumhaill",
+      "pillar": "creatures_gentle",
+      "hook": "What if all the world's wisdom was trapped inside a single fish?",
+      "context": "In Irish legend, Fionn mac Cumhaill was destined to eat the Salmon of Knowledge.",
+      "beats": {
+        "beat_1": "The salmon had eaten hazelnuts from a sacred well and gained all wisdom.",
+        "beat_2": "A poet named Finnegas caught it after seven years of trying. He gave Fionn the job of cooking it.",
+        "beat_3": "Fionn burned his thumb on the fish, sucked it, and accidentally gained the knowledge himself."
+      },
+      "meaning": "Sometimes the greatest things come to us by accident. Wisdom finds those who are ready, even unexpectedly.",
+      "prompt": "When did you learn something important completely by accident?",
+      "image_prompts": {
+        "shot_1": "decorative title card, 'Salmon of Knowledge' text, Celtic water border, paper-cut style",
+        "shot_2": "magical pool with hazelnut tree, glowing salmon below surface, paper-cut style",
+        "shot_3": "old poet silhouette fishing by river for years, paper-cut style, patient pose",
+        "shot_4": "young Fionn silhouette cooking fish over fire, paper-cut style, firelight glow",
+        "shot_5": "Fionn touching thumb to mouth, knowledge swirls around head, paper-cut style",
+        "shot_6": "simple icon of salmon with glowing head, wisdom symbols, meaning card style"
+      },
+      "sources": ["Fenian Cycle texts", "Irish mythology collections"]
+    },
+    {
+      "id": 8,
+      "title": "Why do Irish people make Brigid's crosses?",
+      "topic": "St Brigid's Day traditions",
+      "pillar": "festivals_and_traditions",
+      "hook": "Why do thousands of Irish homes have the same woven cross above their door?",
+      "context": "On February 1st, Irish people make crosses from rushes for St Brigid's Day.",
+      "beats": {
+        "beat_1": "Brigid was both an ancient goddess and a beloved saint. Her day marks spring's beginning.",
+        "beat_2": "The cross is woven from fresh rushes gathered that day. Each family makes their own.",
+        "beat_3": "Once hung above the door, it's said to protect the home from fire and harm for the year."
+      },
+      "meaning": "Making something by hand, together, to protect your home. That's what tradition really means.",
+      "prompt": "Does your family have any handmade traditions? Tell me about them.",
+      "image_prompts": {
+        "shot_1": "decorative title card, 'Brigid's Cross' text, woven rush border, paper-cut style",
+        "shot_2": "Irish cottage doorway with Brigid's cross hung above, paper-cut style, cozy",
+        "shot_3": "hands gathering green rushes by river, paper-cut style, February light",
+        "shot_4": "family silhouettes at table weaving crosses together, paper-cut style, warm interior",
+        "shot_5": "close-up of finished woven cross, simple beautiful design, paper-cut style",
+        "shot_6": "simple icon of cross with protective glow around house, meaning card style"
+      },
+      "sources": ["St Brigid traditions documentation", "Irish craft heritage"]
+    },
+    {
+      "id": 9,
+      "title": "How the Giant's Causeway was really made",
+      "topic": "Giant's Causeway legend",
+      "pillar": "places_and_objects",
+      "hook": "What if a giant built a road across the sea just to fight another giant?",
+      "context": "The Giant's Causeway in Northern Ireland has 40,000 hexagonal stone columns.",
+      "beats": {
+        "beat_1": "Legend says the giant Fionn mac Cumhaill built it to walk to Scotland and challenge a rival.",
+        "beat_2": "When the Scottish giant turned out to be huge, Fionn's wife disguised him as a baby.",
+        "beat_3": "The Scottish giant fled, terrified of how big the 'father' must be. He tore up the causeway behind him."
+      },
+      "meaning": "Sometimes the cleverest solution isn't fighting at all. It's making your enemy think twice.",
+      "prompt": "Have you ever solved a problem by being clever instead of strong?",
+      "image_prompts": {
+        "shot_1": "decorative title card, 'Giant's Causeway' text, hexagonal stone border, paper-cut style",
+        "shot_2": "dramatic hexagonal basalt columns by sea, paper-cut style, moody blues and greys",
+        "shot_3": "giant Fionn silhouette building stone path across sea, paper-cut style, epic scale",
+        "shot_4": "giant disguised as baby in massive cradle, wife silhouette nearby, paper-cut comedy style",
+        "shot_5": "terrified Scottish giant fleeing across sea, stones falling behind, paper-cut style",
+        "shot_6": "simple icon of hexagonal stones with question mark, meaning card style"
+      },
+      "sources": ["Ulster Cycle legends", "Geological Survey of Northern Ireland"]
+    },
+    {
+      "id": 10,
+      "title": "What is Wren Day and why do people dress up?",
+      "topic": "Wren Day traditions",
+      "pillar": "festivals_and_traditions",
+      "hook": "Why do people in Ireland dress in straw and hunt for wrens on December 26th?",
+      "context": "St Stephen's Day, December 26th, is also known as Wren Day in Ireland.",
+      "beats": {
+        "beat_1": "Traditionally, boys would hunt a wren, carry it door to door, and ask for money or treats.",
+        "beat_2": "Today, people dress in straw suits and colourful costumes, parading through towns with music.",
+        "beat_3": "The wren is now fake or just represented. It's become a celebration of community and tradition."
+      },
+      "meaning": "Old traditions change. What matters isn't the original meaning, but the community that keeps it alive.",
+      "prompt": "Does your town have any unusual local traditions? I'd love to hear about them.",
+      "image_prompts": {
+        "shot_1": "decorative title card, 'Wren Day' text, straw texture border, paper-cut style",
+        "shot_2": "tiny wren bird on winter branch, paper-cut style, frosty morning light",
+        "shot_3": "historical scene, children carrying decorated wren, paper-cut style, traditional",
+        "shot_4": "parade of straw-suited figures playing music, paper-cut style, festive, colorful",
+        "shot_5": "village street celebration, dancing figures, bunting, paper-cut style, joyful",
+        "shot_6": "simple icon of wren with music notes, community circle, meaning card style"
+      },
+      "sources": ["Irish Wren Day traditions", "Mummers and straw boy documentation"]
     }
-  }
+  ]
 }
