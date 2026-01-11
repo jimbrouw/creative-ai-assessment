@@ -1,0 +1,80 @@
+{
+  "3": {
+    "inputs": {
+      "seed": -1,
+      "steps": 35,
+      "cfg": 7.5,
+      "sampler_name": "dpmpp_2m",
+      "scheduler": "karras",
+      "denoise": 1,
+      "model": ["4", 0],
+      "positive": ["6", 0],
+      "negative": ["7", 0],
+      "latent_image": ["5", 0]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "KSampler"
+    }
+  },
+  "4": {
+    "inputs": {
+      "ckpt_name": "sd_xl_base_1.0.safetensors"
+    },
+    "class_type": "CheckpointLoaderSimple",
+    "_meta": {
+      "title": "Load Checkpoint"
+    }
+  },
+  "5": {
+    "inputs": {
+      "width": 768,
+      "height": 1344,
+      "batch_size": 1
+    },
+    "class_type": "EmptyLatentImage",
+    "_meta": {
+      "title": "Empty Latent Image (9:16)"
+    }
+  },
+  "6": {
+    "inputs": {
+      "text": "(paper-cut illustration:1.4), (flat watercolour background:1.3), (visible paper texture:1.2), (simple shapes:1.2), (1970s British children's TV animation:1.3), (Bagpuss style:1.2), (handmade tactile feel:1.2), warm muted colours, soft diffused lighting, (folk art:1.1), storybook illustration, nostalgic, gentle atmosphere, vertical composition, [SCENE DESCRIPTION HERE]",
+      "clip": ["4", 1]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Positive)"
+    }
+  },
+  "7": {
+    "inputs": {
+      "text": "photorealistic, photograph, 3d render, CGI, modern, harsh shadows, horror, creepy, dark, scary, gothic, spooky, text, watermark, logo, signature, face, detailed face, realistic human, anime, manga, cartoon network style, disney style, pixar, digital art, neon colours, high contrast, busy background, cluttered, multiple subjects, split frame",
+      "clip": ["4", 1]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Negative)"
+    }
+  },
+  "8": {
+    "inputs": {
+      "samples": ["3", 0],
+      "vae": ["4", 2]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "9": {
+    "inputs": {
+      "filename_prefix": "folklore",
+      "images": ["8", 0]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save Image"
+    }
+  }
+}

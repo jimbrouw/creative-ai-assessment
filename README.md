@@ -1,238 +1,208 @@
-# Faceless YouTube Pipeline - Agent System
+# Irish Folklore Shorts - Faceless YouTube Pipeline
 
-A Claude Code agent system for automating faceless YouTube content production. This system uses multiple specialized agents to handle niche selection, channel analysis, concept generation, scriptwriting, asset prompts, and quality assurance.
+A Claude Code agent system for automated faceless YouTube Shorts production. Currently configured for **Irish Folklore** content with a 70s British children's TV paper-cut visual style.
 
-## What This Does
+## Current Configuration
 
-This is a **repeatable production pipeline** that:
-
-1. Picks a niche suited for faceless automation
-2. Studies what works in that niche (seed channels)
-3. Extracts reusable patterns (titles, hooks, thumbnails)
-4. Generates ideas derived from proven patterns
-5. Writes scripts to a fixed structure
-6. Produces prompts for voiceover, thumbnails, and b-roll
-7. Runs QA that rejects weak output
-8. Outputs a publish-ready "content pack" per video
-
-The win is **consistency + QA + volume**, not clever prompts.
+| Setting | Value |
+|---------|-------|
+| **Niche** | Irish Folklore |
+| **Format** | Shorts (45-60 seconds) |
+| **Visual Style** | Paper-cut illustration (Bagpuss/Mr Benn aesthetic) |
+| **Voice** | Labhaoise (ElevenLabs, Irish accent) |
+| **Cadence** | 1 per day |
+| **Episodes Ready** | 10 starter episodes |
 
 ## Quick Start
 
-### 1. Configure Your Niche
+### 1. Generate Images (Stable Diffusion)
 
-Edit `config/niches.json`:
+```bash
+# Start Automatic1111 with API
+cd stable-diffusion-webui && python launch.py --api
 
-```json
-{
-  "candidate_niches": [
-    "Your niche 1",
-    "Your niche 2"
-  ],
-  "selected_niche": null
-}
+# Generate Episode 1
+cd sd_pipeline/scripts
+python generate_episode.py --episode 1 --api a1111
 ```
 
-Set `selected_niche` to lock in a specific niche, or leave `null` for the Niche Agent to evaluate candidates.
+See `sd_pipeline/README.md` for full setup.
 
-### 2. Add Seed Channels
+### 2. Generate Voice (ElevenLabs)
 
-Edit `config/seed_channels.json`:
+1. Go to ElevenLabs
+2. Select voice: **Labhaoise**
+3. Copy script from `output_pack/2026-01-11_fairy-trees/03_script.md`
+4. Settings: Stability 0.55, Similarity 0.75, Style 0.35
 
-```json
-{
-  "seed_channels": [
-    {
-      "url": "https://www.youtube.com/@YourSeedChannel",
-      "name": "Channel Name"
-    }
-  ]
-}
-```
+### 3. Assemble Video
 
-Add 3-5 successful channels in your chosen niche.
+1. Import 6 images to editor
+2. Add voiceover track
+3. Add captions (see script for text)
+4. Add subtle music bed
+5. Export 1080x1920 (9:16)
 
-### 3. Provide Channel Data
-
-The system needs performance data for seed channels. Place JSON files in `data/channel_dumps/`:
-
-```json
-{
-  "channel": "@ChannelHandle",
-  "subscriber_count": 500000,
-  "videos": [
-    {
-      "video_id": "xxx",
-      "title": "Video Title",
-      "views": 1000000,
-      "publish_date": "2025-06-15",
-      "duration_seconds": 720
-    }
-  ]
-}
-```
-
-**Data sources:**
-- YouTube Data API v3 (recommended)
-- vidIQ / TubeBuddy exports
-- Manual collection
-
-### 4. Set Constraints
-
-Edit `config/constraints.json`:
-
-```json
-{
-  "output_format": "longform",
-  "video_length_minutes": [8, 14],
-  "script_word_count": [1100, 1800],
-  "cadence": "3_per_week"
-}
-```
-
-### 5. Run the Orchestrator
-
-In Claude Code, use this prompt:
-
-```
-You are the Orchestrator Agent for a faceless YouTube pipeline.
-
-Goal: produce a publish-ready output pack for one video, using the specialist agent specs in /agents.
-
-Read:
-- /config/constraints.json
-- /config/seed_channels.json
-- /config/brand_rules.json (if exists)
-- /data/pattern_library.json (if exists)
-
-Pipeline:
-1) If niche not fixed, run Niche Selection Agent.
-2) Ensure pattern_library.json exists; if missing, request channel dump input OR produce a plan to fetch it.
-3) Run Channel Intelligence Agent to update pattern_library.json.
-4) Run Concept Generator Agent (10–30 concepts).
-5) Select best concept (fit constraints + pattern strength).
-6) Run Script Agent and Asset Prompt Agent.
-7) Run QA Agent. If fail, loop to the correct stage with a fix brief.
-8) If pass, write output_pack/{date}_{slug}/ with all required files.
-
-Rules:
-- No generic advice.
-- Every concept must cite patterns + references.
-- Enforce constraints strictly.
-- Output must be structured, file-ready.
-```
+---
 
 ## Folder Structure
 
 ```
-youtube-agent/
-├── README.md
-├── ClaudeCodeSkillsFile.md      # Full system specification
+├── agents/                    # Agent specifications
+│   ├── orchestrator.md       # Pipeline controller
+│   ├── script.md             # Shorts scriptwriting
+│   ├── assets.md             # Image prompt generation
+│   └── qa.md                 # Quality assurance
 │
-├── agents/                       # Agent specifications
-│   ├── orchestrator.md          # Pipeline controller
-│   ├── niche.md                 # Niche selection & scoring
-│   ├── channel_intel.md         # Pattern extraction
-│   ├── concepts.md              # Idea generation
-│   ├── script.md                # Scriptwriting
-│   ├── assets.md                # Prompt generation
-│   └── qa.md                    # Quality assurance
+├── config/                    # Configuration
+│   ├── niches.json           # Irish Folklore (locked in)
+│   ├── constraints.json      # Shorts format specs
+│   └── brand_rules.json      # Paper-cut style, voice rules
 │
-├── config/                       # Configuration files
-│   ├── niches.json              # Candidate niches
-│   ├── seed_channels.json       # Reference channels
-│   ├── constraints.json         # Production constraints
-│   └── brand_rules.json         # Voice & style rules
+├── data/
+│   └── pattern_library.json  # 10 episodes with full prompts
 │
-├── data/                         # Working data
-│   ├── channel_dumps/           # Raw channel exports
-│   └── pattern_library.json     # Extracted patterns
+├── sd_pipeline/               # Stable Diffusion automation
+│   ├── README.md             # SD setup guide
+│   ├── prompts/              # SD-optimized prompts
+│   ├── lora_training/        # Train custom style LoRA
+│   ├── scripts/              # Batch generation scripts
+│   └── workflows/            # ComfyUI workflows
 │
-└── output_pack/                  # Generated content
-    └── {date}_{slug}/           # Per-video folder
-        ├── 00_run_log.md
-        ├── 01_title_options.md
-        ├── 02_concept.md
+└── output_pack/               # Production-ready assets
+    └── 2026-01-11_fairy-trees/
         ├── 03_script.md
-        ├── 03_script_beats.md
-        ├── 03_hook_options.md
-        ├── 04_description_tags.md
-        ├── 05_asset_prompts.md
-        ├── 06_broll_list.md
-        └── 07_qa_report.md
+        └── 05_asset_prompts.md
 ```
 
-## Agents Overview
+---
 
-| Agent | Purpose | Input | Output |
-|-------|---------|-------|--------|
-| **Orchestrator** | Run pipeline end-to-end | All configs | Output pack + log |
-| **Niche Selection** | Score niches for viability | Candidates list | Top 1-2 niches |
-| **Channel Intel** | Extract patterns from data | Channel video data | pattern_library.json |
-| **Concept Generator** | Generate pattern-derived ideas | Pattern library | 10-30 concepts |
-| **Script** | Write structured scripts | Concept + constraints | Script + beats + hooks |
-| **Asset Prompts** | Create external tool prompts | Script + concept | Voice/thumb/b-roll prompts |
-| **QA** | Adversarial review | All outputs | Scorecard + pass/fail |
+## 10 Starter Episodes
 
-## Non-Negotiables
+| # | Title | Pillar | Status |
+|---|-------|--------|--------|
+| 1 | Why do Irish people never cut this tree? | Places | Ready |
+| 2 | The real meaning of Samhain | Festivals | Ready |
+| 3 | What happens if you take a selkie's coat? | Creatures | Ready |
+| 4 | Why do Irish people leave ribbons at wells? | Places | Ready |
+| 5 | What is a púca and why is it so tricky? | Creatures | Ready |
+| 6 | The real meaning of Bealtaine | Festivals | Ready |
+| 7 | The legend of Fionn and the Salmon of Knowledge | Creatures | Ready |
+| 8 | Why do Irish people make Brigid's crosses? | Festivals | Ready |
+| 9 | How the Giant's Causeway was really made | Places | Ready |
+| 10 | What is Wren Day and why do people dress up? | Festivals | Ready |
 
-1. **Pattern evidence required** - Every concept must cite patterns with data
-2. **QA has veto power** - Weak output gets rejected and redone
-3. **Constraints enforced** - Word count, thumbnail rules, structure
-4. **No generic advice** - Every output must be specific and actionable
-5. **Publish cadence > perfect prompts** - Consistency is the goal
+All episodes have full scripts, image prompts, and captions in `data/pattern_library.json`.
 
-## Example Output
+---
 
-See `output_pack/_example_video/` for a complete example of all generated files.
+## Visual Style
 
-## Configuration Reference
+**Aesthetic**: Late 1970s British children's TV animation
 
-### constraints.json
+**References**: Bagpuss, Mr Benn, Willow the Wisp, Ivor the Engine
 
-| Field | Description | Example |
-|-------|-------------|---------|
-| `output_format` | longform / shorts / both | `"longform"` |
-| `video_length_minutes` | Duration range | `[8, 14]` |
-| `script_word_count` | Word count range | `[1100, 1800]` |
-| `thumbnail.text_words_max` | Max thumbnail text | `5` |
-| `thumbnail.color_limit` | Max colors | `3` |
-| `cadence` | Production rate | `"3_per_week"` |
-| `risk_level` | evergreen / trend_surfing | `"evergreen"` |
-| `monetisation_target` | ads / affiliate / lead_gen | `"ads"` |
+**Characteristics**:
+- Paper-cut illustration style
+- Flat painted watercolour backgrounds
+- Visible paper-edge texture
+- Simple shapes and silhouettes
+- Warm, muted colour palette
+- No realistic faces (silhouettes only)
 
-### brand_rules.json
+**6-Shot Template**:
+1. Title card (0-2s)
+2. Hero location (2-8s)
+3. Beat 1 visual (8-17s)
+4. Beat 2 visual (17-26s)
+5. Beat 3 visual (26-35s)
+6. Meaning card (35-60s)
 
-Defines voice, tone, and style rules:
-- `voice.do` - Writing rules to follow
-- `voice.dont` - Things to avoid
-- `format_rules` - Script structure requirements
-- `thumbnail_rules` - Visual guidelines
-- `title_rules` - Title constraints
+---
 
-## Getting Channel Data
+## Script Structure
 
-### Option 1: YouTube Data API v3 (Recommended)
+Each 45-60 second script follows:
 
-1. Create Google Cloud project
-2. Enable YouTube Data API v3
-3. Create API credentials
-4. Use `channels.list` and `search.list` endpoints
+```
+HOOK (0-2s)     → Question to spark curiosity
+CONTEXT (2-8s)  → Ground the tradition/creature
+BEAT 1 (8-17s)  → The belief or tradition
+BEAT 2 (17-26s) → Famous example or story
+BEAT 3 (26-35s) → Modern practice
+MEANING (35-50s)→ Educational payoff
+PROMPT (50-60s) → Invite comments
+```
 
-### Option 2: Third-Party Tools
+---
 
-- **vidIQ**: Export channel analytics
-- **TubeBuddy**: Export competitor data
-- **Social Blade**: Historical data
+## Stable Diffusion Setup
 
-### Option 3: Manual Collection
+### Option 1: Prompt-Only (Quick)
+Use the detailed prompts in `sd_pipeline/prompts/`. Works immediately, less consistent.
 
-For small datasets, manually record:
-- Video titles
-- View counts
-- Publish dates
-- Durations
+### Option 2: Train LoRA (Recommended)
+Train a custom LoRA on the paper-cut style. See `sd_pipeline/lora_training/TRAINING_GUIDE.md`.
 
-## License
+### Batch Generation
 
-This system is designed for legitimate content creation. Use responsibly.
+```bash
+# Generate all 10 episodes
+cd sd_pipeline/scripts
+./batch_generate.sh a1111
+```
+
+---
+
+## Content Guidelines
+
+**Tone**: Warm, curious, educational (NOT scary)
+
+**Kid-Safe Rules**:
+- No gore or explicit violence
+- No horror framing
+- Implied consequences only ("vanished", "never returned")
+- Respect living traditions
+
+**Forbidden**:
+- "Hey guys", "Like and subscribe"
+- Horror language ("terrifying", "creepy")
+- Realistic faces
+- Modern objects in visuals
+
+---
+
+## Production Pipeline
+
+### Daily (30-45 min once running)
+1. Generate 6 images (same style)
+2. Generate voiceover from script
+3. Assemble in editor with captions
+4. Export and upload
+
+### Weekly (2-3 hours)
+1. Research 10 new topics
+2. Write scripts using template
+3. Batch generate 60 images
+4. Batch generate 10 voiceovers
+
+---
+
+## Expansion Path
+
+Once Irish Folklore is established:
+- Scottish folklore (same visual style)
+- Welsh folklore
+- Breton/Cornish folklore
+- Norse mythology
+
+Same template, new subjects.
+
+---
+
+## Resources
+
+- `ClaudeCodeSkillsFile.md` - Full system specification
+- `sd_pipeline/README.md` - Stable Diffusion setup
+- `sd_pipeline/lora_training/TRAINING_GUIDE.md` - LoRA training
+- `agents/` - Agent specifications

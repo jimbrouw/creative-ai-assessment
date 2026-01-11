@@ -1,0 +1,93 @@
+{
+  "1": {
+    "inputs": {
+      "ckpt_name": "sd_xl_base_1.0.safetensors"
+    },
+    "class_type": "CheckpointLoaderSimple",
+    "_meta": {
+      "title": "Load Checkpoint (SDXL)"
+    }
+  },
+  "2": {
+    "inputs": {
+      "lora_name": "folklore_papercut.safetensors",
+      "strength_model": 0.8,
+      "strength_clip": 0.8,
+      "model": ["1", 0],
+      "clip": ["1", 1]
+    },
+    "class_type": "LoraLoader",
+    "_meta": {
+      "title": "Load LoRA (folklore_papercut)"
+    }
+  },
+  "3": {
+    "inputs": {
+      "width": 768,
+      "height": 1344,
+      "batch_size": 1
+    },
+    "class_type": "EmptyLatentImage",
+    "_meta": {
+      "title": "Empty Latent Image (9:16 Shorts)"
+    }
+  },
+  "4": {
+    "inputs": {
+      "text": "folklore_papercut, paper-cut illustration, flat watercolour background, visible paper texture, simple shapes, 1970s British children's TV style, warm muted colours, soft lighting, handmade feel, folk art, [SCENE DESCRIPTION HERE]",
+      "clip": ["2", 1]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "Positive Prompt"
+    }
+  },
+  "5": {
+    "inputs": {
+      "text": "photorealistic, photograph, 3d render, CGI, modern, harsh shadows, horror, creepy, dark, scary, gothic, spooky, text, watermark, logo, signature, face, detailed face, realistic human, anime, manga, digital art, neon colours, high contrast, busy, cluttered",
+      "clip": ["2", 1]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "Negative Prompt"
+    }
+  },
+  "6": {
+    "inputs": {
+      "seed": -1,
+      "steps": 35,
+      "cfg": 7.5,
+      "sampler_name": "dpmpp_2m",
+      "scheduler": "karras",
+      "denoise": 1,
+      "model": ["2", 0],
+      "positive": ["4", 0],
+      "negative": ["5", 0],
+      "latent_image": ["3", 0]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "KSampler"
+    }
+  },
+  "7": {
+    "inputs": {
+      "samples": ["6", 0],
+      "vae": ["1", 2]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "8": {
+    "inputs": {
+      "filename_prefix": "folklore_ep",
+      "images": ["7", 0]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save Image"
+    }
+  }
+}
