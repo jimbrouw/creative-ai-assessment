@@ -1,0 +1,10 @@
+{
+  "candidate_niches": [
+    "History mysteries",
+    "Personal finance explainers",
+    "Engineering disasters",
+    "Courtroom stories"
+  ],
+  "selected_niche": null,
+  "notes": "Set selected_niche to lock in a specific niche. If null, the Niche Selection Agent will evaluate candidates."
+}

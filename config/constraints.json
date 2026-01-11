@@ -1,0 +1,46 @@
+{
+  "output_format": "longform",
+  "output_format_options": ["longform", "shorts", "longform_and_shorts"],
+
+  "video_length_minutes": [8, 14],
+  "script_word_count": [1100, 1800],
+
+  "thumbnail": {
+    "text_words_max": 5,
+    "color_limit": 3,
+    "aspect_ratio": "16:9",
+    "min_resolution": "1280x720"
+  },
+
+  "tone": "direct, factual, no cringe",
+  "cadence": "3_per_week",
+  "cadence_options": ["1_per_day", "3_per_week", "1_per_week", "batch_weekly"],
+
+  "risk_level": "evergreen",
+  "risk_level_options": ["evergreen", "mixed", "trend_surfing"],
+
+  "monetisation_target": "ads",
+  "monetisation_options": ["ads", "affiliate", "lead_gen", "sell_channel", "funnel"],
+
+  "hook_max_seconds": 5,
+  "hook_max_words": 20,
+
+  "script_structure": {
+    "sections": ["HOOK", "CONTEXT", "ESCALATION", "PAYOFF", "WRAP"],
+    "escalation_beats_min": 3,
+    "escalation_beats_max": 5
+  },
+
+  "forbidden_phrases": [
+    "Hey guys",
+    "Welcome back to my channel",
+    "Before we begin",
+    "Without further ado",
+    "Let's dive in",
+    "Don't forget to like and subscribe",
+    "Today we're going to talk about",
+    "In this video"
+  ],
+
+  "notes": "These constraints are enforced by all agents and validated by QA. Modify values but keep structure intact."
+}

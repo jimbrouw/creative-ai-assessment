@@ -1,0 +1,56 @@
+# Channel Dumps Directory
+
+Place raw channel data exports here.
+
+## Expected Format
+
+Each channel should have a JSON file with this structure:
+
+```json
+{
+  "channel": "@ChannelHandle",
+  "channel_url": "https://www.youtube.com/@ChannelHandle",
+  "subscriber_count": 500000,
+  "total_videos": 150,
+  "extracted_date": "2026-01-10",
+  "videos": [
+    {
+      "video_id": "dQw4w9WgXcQ",
+      "title": "Video Title Here",
+      "views": 1000000,
+      "likes": 50000,
+      "comments": 5000,
+      "publish_date": "2025-06-15",
+      "duration_seconds": 720,
+      "thumbnail_url": "https://...",
+      "description": "First 200 chars of description..."
+    }
+  ]
+}
+```
+
+## How to Get This Data
+
+### Option 1: YouTube Data API v3 (Recommended)
+1. Create a Google Cloud project
+2. Enable YouTube Data API v3
+3. Create API credentials
+4. Use the channels.list and search.list endpoints
+
+### Option 2: Third-Party Tools
+- vidIQ: Export channel analytics
+- TubeBuddy: Export competitor data
+- Social Blade: Historical data
+
+### Option 3: Manual Collection
+For small datasets, manually record:
+- Video titles
+- View counts
+- Publish dates
+- Durations
+
+## File Naming Convention
+
+`{channel_handle}_{date}.json`
+
+Example: `@HistoryChannel_2026-01-10.json`

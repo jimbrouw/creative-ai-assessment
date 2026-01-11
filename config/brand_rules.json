@@ -1,0 +1,54 @@
+{
+  "voice": {
+    "do": [
+      "Use short sentences (max 20 words)",
+      "Use active voice",
+      "Make clear, specific claims",
+      "Include concrete details (names, dates, numbers)",
+      "Write for audio - easy to speak aloud",
+      "Get to the point fast"
+    ],
+    "dont": [
+      "Use hype or exaggeration",
+      "Use cliches or tired phrases",
+      "Write rambling intros",
+      "Use filler words (actually, basically, literally)",
+      "Reference the video or channel (no 'in this video', 'I')",
+      "Ask rhetorical questions as filler"
+    ]
+  },
+
+  "format_rules": {
+    "hook_seconds": 5,
+    "sections": ["HOOK", "CONTEXT", "ESCALATION", "PAYOFF", "WRAP"],
+    "section_guidelines": {
+      "HOOK": "Immediate stakes or curiosity. No intro.",
+      "CONTEXT": "What's happening + why it matters. Establish stakes.",
+      "ESCALATION": "3-5 beats of rising tension/insight. Each builds on previous.",
+      "PAYOFF": "The reveal/resolution. Answer the hook's question.",
+      "WRAP": "Bigger picture meaning. Optional tease for next video. No begging for engagement."
+    }
+  },
+
+  "thumbnail_rules": {
+    "text_style": "Bold, impactful, 1-5 words only",
+    "emotion": "Evoke curiosity, shock, or intrigue",
+    "composition": "Single focal point, high contrast, no clutter",
+    "avoid": ["Clickbait that doesn't deliver", "Misleading imagery", "Too much text", "Low contrast"]
+  },
+
+  "title_rules": {
+    "length_chars_max": 60,
+    "style": "Clear curiosity gap OR bold claim",
+    "avoid": ["ALL CAPS entire title", "Excessive punctuation!!!", "Vague promises"]
+  },
+
+  "channel_identity": {
+    "personality": "Knowledgeable narrator - not a personality, just a voice",
+    "credibility": "Well-researched, cites sources when relevant",
+    "pacing": "Efficient - respects viewer's time",
+    "production_style": "Clean, professional, not flashy"
+  },
+
+  "notes": "These rules shape all content. Update to match your brand voice."
+}

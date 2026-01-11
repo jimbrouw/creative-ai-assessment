@@ -1,0 +1,42 @@
+{
+  "meta": {
+    "generated": null,
+    "channels_analysed": 0,
+    "videos_analysed": 0,
+    "niche": null,
+    "status": "empty",
+    "notes": "This file will be populated by the Channel Intelligence Agent after analysing seed channel data."
+  },
+  "title_templates": [],
+  "hook_templates": [],
+  "topic_clusters": [],
+  "thumbnail_rules": {
+    "text": {
+      "word_count_range": null,
+      "common_words": [],
+      "placement": null,
+      "font_style": null
+    },
+    "colors": {
+      "dominant_palette": [],
+      "contrast": null,
+      "background": null
+    },
+    "composition": {
+      "focal_point": null,
+      "faces": null,
+      "arrows_circles": null
+    }
+  },
+  "timing_insights": {
+    "optimal_duration": {
+      "range_minutes": null,
+      "sweet_spot": null,
+      "evidence": null
+    },
+    "publish_patterns": {
+      "best_days": [],
+      "avoid": []
+    }
+  }
+}

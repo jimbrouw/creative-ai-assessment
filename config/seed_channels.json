@@ -1,0 +1,22 @@
+{
+  "seed_channels": [
+    {
+      "url": "https://www.youtube.com/@examplechannel1",
+      "name": "Example Channel 1",
+      "notes": "Replace with actual seed channel"
+    },
+    {
+      "url": "https://www.youtube.com/@examplechannel2",
+      "name": "Example Channel 2",
+      "notes": "Replace with actual seed channel"
+    }
+  ],
+  "data_source": "manual",
+  "data_source_options": [
+    "youtube_api_v3",
+    "vidiq_export",
+    "tubebuddy_export",
+    "manual"
+  ],
+  "notes": "Add 3-5 seed channels in your chosen niche. These will be analyzed by the Channel Intelligence Agent to extract patterns."
+}
