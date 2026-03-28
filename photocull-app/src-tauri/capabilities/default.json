@@ -1,0 +1,12 @@
+{
+  "$schema": "../gen/schemas/desktop-schema.json",
+  "identifier": "default",
+  "description": "PhotoCull default capabilities",
+  "windows": ["main"],
+  "permissions": [
+    "core:default",
+    "core:asset:allow-fetch",
+    "opener:default",
+    "dialog:allow-open"
+  ]
+}
