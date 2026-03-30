@@ -5,8 +5,8 @@
   "windows": ["main"],
   "permissions": [
     "core:default",
-    "core:asset:allow-fetch",
     "opener:default",
+    "opener:allow-open-path",
     "dialog:allow-open"
   ]
 }
