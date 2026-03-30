@@ -64,6 +64,7 @@ fn run_exports(
     write_xmp: bool,
     write_html: bool,
 ) -> Result<(), String> {
+    let keep_str = keep_duplicates.to_string();
     let mut args = vec![
         ENGINE,
         "--input",
@@ -71,7 +72,7 @@ fn run_exports(
         "--mode",
         &mode,
         "--keep-duplicates",
-        &keep_duplicates.to_string(),
+        &keep_str,
         "--output-dir",
         &output_dir,
     ];
