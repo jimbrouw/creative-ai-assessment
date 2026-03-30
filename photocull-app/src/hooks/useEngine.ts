@@ -64,7 +64,7 @@ export function useEngine(onEvent: (e: EngineEvent) => void) {
   }, [onEvent]);
 
   async function startAnalysis(params: AnalysisParams) {
-    return invoke("run_analysis", params as Record<string, unknown>);
+    return invoke("run_analysis", params as unknown as Record<string, unknown>);
   }
 
   async function runExports(params: {
@@ -75,7 +75,7 @@ export function useEngine(onEvent: (e: EngineEvent) => void) {
     write_xmp: boolean;
     write_html: boolean;
   }) {
-    return invoke("run_exports", params as Record<string, unknown>);
+    return invoke("run_exports", params as unknown as Record<string, unknown>);
   }
 
   return { startAnalysis, runExports };
