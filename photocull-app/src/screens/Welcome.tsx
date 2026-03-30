@@ -37,7 +37,7 @@ export function Welcome({ onStart }: Props) {
     for (const item of items) {
       if (item.kind === "file") {
         const file = item.getAsFile();
-        if (file) setFolder(file.path ?? "");
+        if (file) setFolder((file as unknown as { path: string }).path ?? file.name);
       }
     }
   }
